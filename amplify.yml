@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use 20 || . $NVM_DIR/nvm.sh && nvm install 20 && nvm use 20
+        - node -v && npm -v
+        - export LIGHTNINGCSS_NODE_FALLBACK=1
+        - npm ci --no-audit --no-fund
+        - npm rebuild lightningcss || true
+        - node -e "try{require('lightningcss');console.log('lightningcss ready')}catch(e){console.log('lightningcss fallback')}"
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
