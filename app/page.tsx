@@ -38,6 +38,27 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Jhon Freiman Arias',
+            url: 'https://jhonarias.dev',
+            sameAs: [
+              'https://github.com/Jhonarias13',
+              'https://www.linkedin.com/in/jhon-freiman-arias-b87021125/',
+            ],
+            jobTitle: 'Full-Stack Developer',
+            worksFor: {
+              '@type': 'Organization',
+              name: 'Pharmarket AI',
+              url: 'https://pharmarket.co',
+            },
+          }),
+        }}
+      />
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
           {["intro", "work", "thoughts", "connect"].map((section) => (
