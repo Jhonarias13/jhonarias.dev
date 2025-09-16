@@ -106,7 +106,14 @@ export default function Home() {
                 </div>
                 <div className="space-y-2">
                   <div className="text-foreground">Software Engineer</div>
-                  <div className="text-muted-foreground">@ Pharmarket AI</div>
+                  <a
+                    href="https://pharmarket.co"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:underline hover:text-foreground transition-colors duration-200"
+                  >
+                    @ Pharmarket AI
+                  </a>
                   <div className="text-xs text-muted-foreground">
                     2021 — Present
                   </div>
