@@ -121,3 +121,56 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ── Scroll reveal ───────────────────────────────────────── */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-word-up {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.reveal-el {
+  opacity: 0;
+}
+
+.reveal-word {
+  display: inline-block;
+  transform: translateY(110%);
+}
+
+.section-revealed .reveal-el {
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section-revealed .reveal-word {
+  animation: reveal-word-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-el {
+    opacity: 0;
+    animation: none;
+  }
+  .section-revealed .reveal-el {
+    opacity: 1;
+    animation: none;
+  }
+  .reveal-word {
+    transform: none;
+    animation: none;
+  }
+}
